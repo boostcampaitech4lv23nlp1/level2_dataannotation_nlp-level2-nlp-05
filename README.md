@@ -4,8 +4,8 @@
 
 * [🪐 Work Description](#Work)
 * [💾 Dataset Description](#dataset)
-* [🗄 Procedure](#Procedure)
-* [⚙️ Model](#Model)
+* [🗄 Annotation Procedure](#Procedure)
+* [⚙️ Model & Train](#Model)
 * [💻 Result](#Result)
 
 </br>
@@ -94,15 +94,15 @@
 
   <br>
 
-| Dataset            | train                    | test |
-| ------------------ | ----------------------- |--------------- |
-| **문장 수**        | 32470      |     7765   |
-| **비율**        | 80      |     20 |
+| Dataset            | train                    |valid    | test |
+| ------------------ | ----------------------- |-------|--------------- |
+| **문장 수**        | | | |
+| **비율**        | | | |
 
 
 ## 🗄 Procedure <a name='Procedure'></a>
 
-## ⚙️ Model <a name='Model'></a>
+## ⚙️ Model & Train<a name='Model'></a>
 
   Klue/Roberta-large로 해당 데이터 학습
 
