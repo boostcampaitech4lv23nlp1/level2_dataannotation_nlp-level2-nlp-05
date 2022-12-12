@@ -89,7 +89,7 @@
       - `<SUBJ-DAT>`가 `<OBJ-CLO>`의 발견 날짜일 때(년도, 세기, 연월일, ~년 전 등) 태깅
       - <SUBJ-DAT: 964년>에는 페르시아 천문학자 알 수피가 <OBJ-CLO: 안드로메다>를 발견하였다.
   
-  details : 
+  details : [관계 추출 태스크 가이드라인](https://github.com/boostcampaitech4lv23nlp1/level2_dataannotation_nlp-level2-nlp-05/blob/main/files/NLP-05%EC%A1%B0%20KLUE-RE%20%EA%B4%80%EA%B3%84%20%EC%B6%94%EC%B6%9C%20%ED%83%9C%EC%8A%A4%ED%81%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8.docx.pdf)
 
 
   <br>
