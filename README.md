@@ -28,55 +28,69 @@
 </code></pre>
 
 * 정의된 개체(Entity)
-  - `PERSON` - 사람 이름 <PER>
-  - `LC_SPACE` - [https://ko.wikipedia.org/wiki/천체](https://ko.wikipedia.org/wiki/%EC%B2%9C%EC%B2%B4)의 천체, 가스 행성,떠돌이 별, 붙박이별  <SPC>
-  - `CONCEPT` - 법칙, 이론, 명칭, (책은 제외)
-  - `DATE`  - 1920년, 19세기  등 특정 시점?시기? (490년 전 은 안됨) <DAT>
-  - `ELEMENT` - 원소, 물, 암석 등 물질적인 것 <ELM>
-  - `TEMPERTURE` - 온도 <TMP>
-  - `SIZE` - 크기 <SIZ>
-  - `SHAPE` - 모양 <SHP>
+  - `PERSON(PER)` 
+    - 사람을 의미한다. 본 과제에서는 사람 이름과 신 이름으로 제한한다.
+  - `CELESTIAL OBJECT(CLO)`
+    - 천체를 의미한다. https://ko.wikipedia.org/wiki/천체의 천체, 가스 행성,떠돌이 별, 붙박이별
+  - `CONCEPT(CPT)`
+    - 법칙, 이론, 개념을 의미한다. 이때 책 이름과 같이 특정 개념을 나타내는 것이 아닌 경우는 제외한다. 또한 위키피디아에 문서로 등장하지 않는 경우 제외한다.
+  - `DATE(DAT)`
+    - 시기를 의미한다. “1920년”, “19세기” 등 특정 시점이나 “45년 전”과 같이 특정 시기를 의미하는 단어로 제한한다.
+  - `ELEMENT(ELM)` 
+    - 원소, 물, 암석 등의 물질을 의미한다. 대기와 같이 영역은 제외한다.
+  - `METRIC(MET)` 
+    - 온도, 무게, 밀도, 자전주기 등 한 물체의 수치적인 특성을 의미한다. 숫자와 단위가 동시에 들어간 경우로 제한한다. 상대적인 수치는 제외한다.
  
  * 정의된 관계(Relation)
     - `no_relation`
       - no_relation
-    - `PERSON` - `CONCEPT`
-        - propose(제안하다):  뉴턴 - 중력 이론, 아인슈타인 - 상대성이론
-            - <PER>이 <THR>을 제안/제시한 경우 태깅
-            - `1915년, <알베르트 아인슈타인>이 <일반상대론>을 고안하여 중력이 빛의 운동에 영향을 미침을 보였다.`
-    - `LC_SPACE` - `LC_SPACE`
-        - revolves(공전하다): 지구 - 태양, 태양 - 은하, 위성 - 목성
-            - <OBJ-SPC>가 <SUBJ-SPC>을/를 공전하는 또는 위성인 경우 태깅 # 순서 주의
-            - `<토성> 주위를 불규칙하게 도는 <히페리온>이나, 행성의 가장 바깥 궤도를 도는 토성의 포에베 등이 예외에 속한다.`
-        - contains(물리적 포함): 은하 - 항성, 태양계 - 소행성
-            - <SUBJ-SPC>가 <OBJ-SPC>을/를 위치하는 경우 태깅 (물리적 위치 기준)
-            - `행성 외에도 <태양계>의 구성 천체로는 <소천체>로 이루어진 띠도 있다.`
-            - `카이퍼 대애 명왕성이 위치한다`
-        - hierarchy(개념적 포함): 항성 - 태양, 행성 - 지구 , 소행성대 - 소행성
-            - <SUBJ-SPC>가 <OBJ-SPC>을/를 포함하는 경우 태깅 (A는 B이다)
-            - `성운의 예는 장미 성운 또는 펠리칸 성운이다.`
-            - `처음으로 발견된 소행성은 세레스이며,`
-        - turn_into(바뀌다, 변화하다):  항성 - 성간 구름
-            - `<항성>은 수소 및 헬륨, 기타 중원소로 이루어진 <성간 구름>이 붕괴하면서 탄생한다.`
-            - `가스로 된 코마나 꼬리가 없다는 점에서 혜성과 구분되지만, 일부 <소행성>은 과거에 <혜성>이었다.`
-            - `<블랙홀>은 <항성>이 진화의 최종단계에서 폭발후 수축되어 생성된 것으로 추측되는,`
-        - alias(별칭): 토성 - 태양계의 보석
-            - 또한 토성은 "Jewel of the Solar System"(태양계의 보석)이라는 별명도 가지고 있다.
-    - `LC_SPACE` - `ELEMENT`
-        - composed_of(구성되다): 성운 - 수소, 목성의 대기 - 메테인
-            - <SPC>이 <ELM>로 구성되어 있는 경우 태깅
-            - `<태양>과 가스 행성(목성, 토성, 천왕성, 해왕성) 들도 <수소>와 헬륨이 전체의 대부분을 차지하고 있다.`
-    - `LC_SPACE` - `METRIC`
-        - size_of(~의 크기): 수성 - 2439.7km, 베토벤 분지 - 625km, 우리 은하 - 15kpc, 수성 - 452.5K, 중성자 핵 - 1천억 켈빈
-            - <SPC>의 크기가 <MTR>인 경우 태깅
-            - `<베토벤 분지>는 분출물 덮개와 비슷한 크기이며, 폭은 <625km>이다.`
-    - `LC_SPACE` - `DATE`
-        - date_of_discovery(발견한 날짜)
-            - <SPC>가 <DAT>에 발견된 경우 태깅
-            - `<964년>에는 페르시아 천문학자 알 수피가 <안드로메다>를 발견하였다.`
-    - `LC_SPACE` - `PER`
-        - originate(유래하다)
-            - <SUB-SPC>가 <OBJ-PER>에서 유래한 경우 태깅 (PER은 사람 또는 신 이름)
+    - `clo:revolves`
+      - Entity :  `<SUBJ-CLO>` - `<OBJ-CLO>`
+      - `<SUBJ-CLO>`가 `<OBJ-CLO>`를 공전할 때 또는 <SUBJ-CLO>가 <OBJ-CLO>의 위성 혹은 행성일 때 태깅. 
+      - <OBJ-CLO: 토성> 주위를 불규칙하게 도는 <SUBJ-CLO: 히페리온>이나 ..
+  
+    - `clo:exists_in`
+      - Entity :  `<SUBJ-CLO>` - `<OBJ-CLO>`
+      - `<SUBJ-CLO>`가 `<OBJ-CLO>`에 위치하는 경우 태깅 (물리적 위치 기준)
+      - <SUBJ-CLO: 명왕성>은 <OBJ-CLO: 카이퍼 대>에 있는 왜행성이다.
+  
+    - `clo:contains`
+      - Entity :  `<SUBJ-CLO>` - `<OBJ-CLO>`
+      - `<SUBJ-CLO>`의 개념이 `<OBJ-CLO>`의 개념을 포함하는 경우 태깅 (OBJ는 SUBJ이다 -> SUBJ는 OBJ이다는 아님)
+      - <SUBJ-CLO: 성운>의 예는 <OBJ-CLO: 장미 성운> 또는 펠리칸 성운이다.
+
+    - `clo:turn_into`
+      - Entity :  `<SUBJ-CLO>` - `<OBJ-CLO>`
+      - `<SUBJ-CLO>`가 `<OBJ-CLO>`로 변화했을 경우 태깅 (SUBJ가 과거, OBJ가 미래)
+      - <OBJ-CLO: 항성>은 수소 및 헬륨, 기타 중원소로 이루어진 <SUBJ-CLO: 성간 구름>이 붕괴하면서 탄생한다.
+
+    - `clo:alias_of`
+      - Entity :  `<SUBJ-CLO>` - `<OBJ-CLO>`
+      - `<SUBJ-CLO>`가 `<OBJ-CLO>`의 별칭일 경우 태깅 (OBJ는 SUBJ이다, SUBJ는 OBJ이다 둘 다 성립해야 함)
+      - 또한 <SUBJ-CLO:토성>은 <OBJ-CLO: "Jewel of the Solar System"(태양계의 보석)>이라는 별명도 가지고 있다.
+  
+    - `clo:composed_of`
+      - Entity :  `<SUBJ-CLO>` - `<OBJ-ELM>`
+      - `<SUBJ-CLO>`가 `<OBJ-ELM>`로 이루어졌을 때(구성되었을 때) 태깅
+      - <SUBJ-CLO:태양>과 가스 행성(목성, 토성, 천왕성, 해왕성) 들도 <OBJ-ELM: 수소>와 헬륨이 전체의 대부분을 차지하고 있다.
+  
+    - `met:feature_of`
+      - Entity :  `<SUBJ-MET>` - `<OBJ-CLO>`
+      - `<SUBJ-MET>`가 `<OBJ-CLO>`의 수치적 특성일 때(크기, 온도, 속도, 밀도 등) 태깅
+      - <OBJ-CLO:수성> 평균 온도는 <SUBJ-MET:452.5K>이다.
+  
+    - `per:propose`
+      - Entity :  `<SUB-PER>` - `<OBJ-CON>`
+      - 어떤 사람(PER)이 개념, 이론, 법칙, 현상 등을 제안/제시했을 때 태깅
+      - 1915년, <SUBJ-PER:알베르트 아인슈타인>이 <OBJ-CON:일반상대론>을 고안하여 …
+ 
+    - `dat:date_of_discovery`
+      - Entity :  `<SUBJ-DAT>` - `<OBJ-CLO>`
+      - `<SUBJ-DAT>`가 `<OBJ-CLO>`의 발견 날짜일 때(년도, 세기, 연월일, ~년 전 등) 태깅
+      - <SUBJ-DAT: 964년>에는 페르시아 천문학자 알 수피가 <OBJ-CLO: 안드로메다>를 발견하였다.
+  
+  details : 
+
 
   <br>
 
