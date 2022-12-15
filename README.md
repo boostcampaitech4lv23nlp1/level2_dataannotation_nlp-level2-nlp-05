@@ -87,23 +87,45 @@
     - `dat:date_of_discovery`
       - Entity :  `<SUBJ-DAT>` - `<OBJ-CLO>`
       - `<SUBJ-DAT>`가 `<OBJ-CLO>`의 발견 날짜일 때(년도, 세기, 연월일, ~년 전 등) 태깅
-      - <SUBJ-DAT: 964년>에는 페르시아 천문학자 알 수피가 <OBJ-CLO: 안드로메다>를 발견하였다.
-  
-  details : [관계 추출 태스크 가이드라인](https://github.com/boostcampaitech4lv23nlp1/level2_dataannotation_nlp-level2-nlp-05/blob/main/files/NLP-05%EC%A1%B0%20KLUE-RE%20%EA%B4%80%EA%B3%84%20%EC%B6%94%EC%B6%9C%20%ED%83%9C%EC%8A%A4%ED%81%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8.docx.pdf)
+      - <SUBJ-DAT: 964년>에는 페르시아 천문학자 알 수피가 <OBJ-CLO: 안드로메다>를 발견하였다.</br></br>
+      
+  - Dataset
 
-
-  <br>
-
-| Dataset            | train                    |valid    | test |
+| Relation Class            | train(ratio)                    |valid(ratio)    | test(ratio) |
 | ------------------ | ----------------------- |-------|--------------- |
-| **문장 수**        | | | |
-| **비율**        | | | |
+| no:relation | 316(0.38)|39(0.39 |39(0.39) |
+| clo:composed_of |127(0.15) |15(0.15) |15(0.15) |
+| clo:contains | 80(0.09)|10(0.10) |10(0.10) |
+| clo:exists_in |66(0.08) |8(0.08) |8(0.08) |
+| clo:revolves |53(0.06) |7(0.07)|7(0.07)|
+| clo:turn_into |29(0.03) |3(0.03)|4(0.04)|
+| clo:alias_of | 17(0.02)|2(0.02)|2(0.02)|
+| met:feature_of | 70(0.08)|8(0.08)|8(0.08)|
+| per:propose |37(0.04) |5(0.05) |4(0.04)|
+| per:origin_of | 10(0.01)|1(0.01)|1(0.01)|
+| dat:date_of_discovery | 15(0.01)|2(0.02)|2(0.02)|
+| **Total**|**820**|**100**|**100**|
 
+  details : [관계 추출 태스크 가이드라인](https://github.com/boostcampaitech4lv23nlp1/level2_dataannotation_nlp-level2-nlp-05/blob/main/files/NLP-05%EC%A1%B0%20KLUE-RE%20%EA%B4%80%EA%B3%84%20%EC%B6%94%EC%B6%9C%20%ED%83%9C%EC%8A%A4%ED%81%AC%20%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8.docx.pdf)
+<br><br>
 
-## 🗄 Procedure <a name='Procedure'></a>
+## 🗄 Annotation Procedure <a name='Procedure'></a>
+  - 데이터 전처리(애매모호한 문장 삭제 및 수정)
+  - Pilot tagging(tagging 결과 피드백 반영)
+  - tagtog과 google spread sheet를 활용하여 tagging 실행
+  - IAA Score 산출 : **Fleiss` Kappa = 0.85**
+<br>
 
 ## ⚙️ Model & Train<a name='Model'></a>
 
-  Klue/Roberta-large로 해당 데이터 학습
+  - Klue/Roberta-large로 해당 데이터 학습
+  
+  | model            | f1-micro                   |auprc    |
+| ------------------ | ----------------------- |-------|
+| klue/roberta-small 5 epoch| 61.78 | 63.99 |
+| klue/roberta-small 9 epoch | 74.07 | 63.05 |
+| klue/roberta-large 5 epoch| 69.92 | 68.88 |
+| klue/roberta-large 10 epoch| 66.15 | 58.52 |
 
-## 💻 Result <a name='Result'></a>
+
+## 💻 Report <a name='Result'></a>
