@@ -4,8 +4,8 @@
 
 * [🪐 Work Description](#Work)
 * [💾 Dataset Description](#dataset)
-* [🗄 Annotation Procedure](#Procedure)
-* [⚙️ Model & Train](#Model)
+* [🗄 Annotation Procedure](#-annotation-procedure-)
+* [⚙️ Model & Train](#%EF%B8%8F-model--train)
 * [💻 Result](#Result)
 
 </br>
@@ -13,7 +13,7 @@
 ## 🪐 Work Description <a name='Work'></a>
 
 관계 추출(Relation Extraction)은 문장의 단어(Entity)에 대한 속성과 관계를 예측하는 문제입니다. <br>
-이번 작업은 관계 추출 데이터 세트를 직접 만들어 보는 작업이며 대상이 되는 주제는 **"태양계"** 입니다.
+이번 작업은 관계 추출 데이터 세트를 직접 만들어 보는 작업이며 대상이 되는 주제는 **"태양계 형성과 진화"** 입니다.
 
 </br>
 
