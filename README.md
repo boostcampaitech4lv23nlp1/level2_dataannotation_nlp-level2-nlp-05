@@ -129,3 +129,6 @@
 
 
 ## 💻 Report <a name='Result'></a>
+
+  제출 리포트 : [링크](https://github.com/boostcampaitech4lv23nlp1/level2_dataannotation_nlp-level2-nlp-05/blob/main/guideline/%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%9C%EC%9E%91_NLP_%ED%8C%80%20%EB%A6%AC%ED%8F%AC%ED%8A%B8_5%EC%A1%B0.pdf)
+<br><br>
